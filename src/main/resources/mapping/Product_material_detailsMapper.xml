@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lcfc.spring_demo.mapper.Product_material_detailsMapper">
+    <!-- 数据库字段名和实体属性一致 -->
+    <select id="findPdName" resultType="String" parameterType="com.lcfc.spring_demo.entity.Product_material_details">
+        select product_name 
+        from product_material_details 
+        where 
+        <choose>
+            <when test='display_card!=null and display_card!=""'>
+                display_card like concat("%",#{display_card},"%")
+            </when>
+            <otherwise>
+                1=1
+            </otherwise>         
+        </choose> 
+            <!-- diplay_card like "%${diplay_card}%" -->
+        <choose>
+            <when test="processor!=null and processor!=''">
+                and processor like "%${processor}%"
+            </when>
+            <otherwise>
+            </otherwise>         
+        </choose>
+        <choose>
+            <when test="ram!=null and ram!=''">
+                and ram like "%${ram}%"
+            </when>
+            <otherwise>
+            </otherwise>         
+        </choose>
+        <choose>
+            <when test="hard_disk_capacity!=null and hard_disk_capacity!=''">
+                and hard_disk_capacity like "%${hard_disk_capacity}%"
+            </when>
+            <otherwise>
+            </otherwise>         
+        </choose>
+        <!-- 
+        and  display_card_type like "%"#{}"%" -->
+         <!--and  ram like "%"+#{2}+"%"
+        and  processor_series like "%"+#{3}+"%"
+        and ram like "%"+#{4}+"%"
+        and display_card_type like "%"#{5}"%"
+        and processor_series like "%"#{6}"%"
+        and hard_disk_capacity like "%"#{7}"%"
+        and hard_disk_capcity like "%"#{8}"%"
+        and weight like "%"+#{9}+"%"
+        and os like "%"+#{10}+"%"
+        and resolution like "%"+#{11}+"%" -->
+    </select>
+
+    <insert id="addPd" parameterType="com.lcfc.spring_demo.entity.Product_material_details" >
+        insert into product_material_details(product_name,display_card,processor,ram,hard_disk_capacity) values(#{product_name},#{display_card},#{processor},#{ram},#{hard_disk_capacity})
+    </insert>
+
+    <update id="updatePd" parameterType="com.lcfc.spring_demo.entity.Product_material_details">
+        update product_material_details set display_card=#{display_card},processor=#{processor},ram=#{ram},hard_disk_capacity=#{hard_disk_capacity} where product_name=#{product_name}
+    </update>
+
+    <delete id="delPd" parameterType="String">
+        delete from product_material_details where product_name=#{name} 
+    </delete>
+
+
+    <!-- 分页功能 查询所有-->
+    <select id="findAll" resultType="com.lcfc.spring_demo.entity.Product_material_details">
+        select * from product_material_details
+    </select>
+
+    <!--查询一个-->
+    <select id="findOne" resultType="com.lcfc.spring_demo.entity.Product_material_details" parameterType="String">
+        select * from product_material_details where product_name=#{name}
+    </select>
+
+</mapper>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lcfc.spring_demo.mapper.Product_make_detailsMapper">
+    <!-- 数据库字段名和实体属性一致 -->
+    <select id="findByName" resultType="com.lcfc.spring_demo.entity.Product_make_details" parameterType="java.util.List">
+    select * from Product_make_details
+        <where> 
+            product_name in 
+            <foreach item="product_name" index="" collection="product_names" open="(" close=")" separator="," >'${product_name}'</foreach> 
+        </where>
+    </select>
+</mapper>
