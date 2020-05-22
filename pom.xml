@@ -19,17 +19,13 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter</artifactId>
-      <!-- 去除本身的日志 -->
       <exclusions>
         <exclusion>
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-starter-logging</artifactId>
         </exclusion>
       </exclusions>
-      
     </dependency>
-
-    <!-- 测试 -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
@@ -41,7 +37,6 @@
         </exclusion>
       </exclusions>
     </dependency>
-<!-- 数据库连接 -->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
@@ -54,12 +49,11 @@
       <scope>compile</scope>
     </dependency>
 
-    <!-- pagehelper -->
-    <dependency>
-        <groupId>com.github.pagehelper</groupId>
-        <artifactId>pagehelper-spring-boot-starter</artifactId>
-        <version>1.2.5</version>
-    </dependency>
+    <!-- <dependency>
+      <groupId>com.baomidou</groupId>
+      <artifactId>mybatis-plus-boot-starter</artifactId>
+      <version>3.3.1.tmp</version>
+    </dependency> -->
     
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -80,15 +74,18 @@
       <artifactId>spring-boot-starter-thymeleaf</artifactId>
       <scope>compile</scope>
     </dependency>
-    
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <scope>annotationProcessor</scope>
+    </dependency>
   </dependencies>
-
   <build>
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
-      </plugin>  
+      </plugin>
     </plugins>
   </build>
 </project>

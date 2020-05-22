@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lcfc.spring_demo.mapper.Material_specMapper">
+    <select id="getProcessor" resultType="com.lcfc.spring_demo.entity.Material_spec">
+        select * from material_spec where type="processor"
+    </select>
+    <select id="getRam" resultType="com.lcfc.spring_demo.entity.Material_spec">
+        select * from material_spec where type="ram"
+    </select>
+    <select id="getHard_disk_capacity" resultType="com.lcfc.spring_demo.entity.Material_spec">
+        select * from material_spec where type="hard_disk_capacity"
+    </select>
+    <select id="getDisplay" resultType="com.lcfc.spring_demo.entity.Material_spec">
+        select * from material_spec where type="display_card"
+    </select>
+</mapper>

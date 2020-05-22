@@ -20,11 +20,6 @@ mybatis:
     mapper-locations: classpath:mapping/*Mapper.xml
     type-aliases-package: com.lcfc.spring_demo
     
-pagehelper:
-    helperDialect: mysql
-    reasonable: true
-    supportMethodsArguments: true
-    params: count=countSql
 
 
 

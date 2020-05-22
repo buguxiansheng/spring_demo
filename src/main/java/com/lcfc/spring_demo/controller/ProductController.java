@@ -7,7 +7,7 @@ import java.util.Map;
 import com.lcfc.spring_demo.entity.Product_general_cost;
 import com.lcfc.spring_demo.entity.Product_make_details;
 import com.lcfc.spring_demo.entity.Product_material_details;
-
+import com.lcfc.spring_demo.entity.Vendor_select;
 import com.lcfc.spring_demo.mapper.Product_general_costMapper;
 import com.lcfc.spring_demo.mapper.Product_make_detailsMapper;
 import com.lcfc.spring_demo.mapper.Product_material_detailsMapper;
@@ -15,6 +15,7 @@ import com.lcfc.spring_demo.mapper.product_time_costMapper;
 import com.lcfc.spring_demo.service.CostBreakDown;
 import com.lcfc.spring_demo.service.GetRate;
 import com.lcfc.spring_demo.service.RateToCost;
+import com.lcfc.spring_demo.service.VendorSelect;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,9 @@ public class ProductController {
 
     @Autowired
     private RateToCost rateToCost;
+
+    @Autowired
+    private VendorSelect vendorSelect;
 
 
 
@@ -146,8 +150,20 @@ public class ProductController {
 
     @RequestMapping("/spec_findone")
     @ResponseBody
+    //参数为字符串的处理
     private Product_material_details findOne(@RequestBody Map<String,String> map){
         return product_material_detailsMapper.findOne(map.get("product_name"));
     }
+
+    //原材料报价单
+    @RequestMapping("/vendor_select")
+    @ResponseBody
+    private Vendor_select getMaterialBill(@RequestBody Map<String,Integer> map){
+        int amount=map.get("amount");
+        System.out.println(vendorSelect.getCostInfo(amount));
+        return vendorSelect.getCostInfo(amount);
+    }
+
+    
 
 }

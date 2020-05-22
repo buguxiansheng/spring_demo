@@ -6,6 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @MapperScan("com.lcfc.spring_demo.mapper")
 @SpringBootApplication
+
+// @MapperScan("com.baomidou.mybatisplus.samples.quickstart.mapper")
+
 public class DemoApplication {
 	
 	public static void main(String[] args) {
