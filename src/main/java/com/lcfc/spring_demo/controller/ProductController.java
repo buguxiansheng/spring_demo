@@ -1,9 +1,12 @@
 package com.lcfc.spring_demo.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.lcfc.spring_demo.entity.Product_general_cost;
 import com.lcfc.spring_demo.entity.Product_make_details;
 import com.lcfc.spring_demo.entity.Product_material_details;
@@ -21,6 +24,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -113,30 +117,36 @@ public class ProductController {
             }
         }
     }
-
     @RequestMapping("/spec_update")
     @ResponseBody
     private void updatePd(@RequestBody Product_material_details pmd){
         System.out.println(pmd);
-
         product_material_detailsMapper.updatePd(pmd);
     }
-
-
     @RequestMapping("/spec_delPd")
     @ResponseBody
     private void delPd(@RequestBody Map<String,String> map){
         System.out.println(map.get("product_name"));
-        
-        //同时对一条记录进行编辑
-
         product_material_detailsMapper.delPd(map.get("product_name"));
+        
     }
 
     @RequestMapping("/spec_find")
     @ResponseBody
-    private List<Product_material_details> findAll(){
-        return product_material_detailsMapper.findAll();
+    private PageInfo<Product_material_details> findAll(@RequestBody Map<String,Integer> pagination){
+        
+        PageHelper.startPage(pagination.get("currentPage"), pagination.get("pageSize"));
+
+
+        List<Product_material_details> list=product_material_detailsMapper.findAll();
+
+
+        PageInfo<Product_material_details> pageInfo =new PageInfo<>(list);
+
+        pageInfo.setPageSize(pagination.get("pageSize"));
+
+        
+        return pageInfo;
     }
 
     //分页查询
@@ -158,7 +168,7 @@ public class ProductController {
     //原材料报价单
     @RequestMapping("/vendor_select")
     @ResponseBody
-    private Vendor_select getMaterialBill(@RequestBody Map<String,Integer> map){
+    private Map<String,Object> getMaterialBill(@RequestBody Map<String,Integer> map){
         int amount=map.get("amount");
         System.out.println(vendorSelect.getCostInfo(amount));
         return vendorSelect.getCostInfo(amount);

@@ -36,18 +36,6 @@
             <otherwise>
             </otherwise>         
         </choose>
-        <!-- 
-        and  display_card_type like "%"#{}"%" -->
-         <!--and  ram like "%"+#{2}+"%"
-        and  processor_series like "%"+#{3}+"%"
-        and ram like "%"+#{4}+"%"
-        and display_card_type like "%"#{5}"%"
-        and processor_series like "%"#{6}"%"
-        and hard_disk_capacity like "%"#{7}"%"
-        and hard_disk_capcity like "%"#{8}"%"
-        and weight like "%"+#{9}+"%"
-        and os like "%"+#{10}+"%"
-        and resolution like "%"+#{11}+"%" -->
     </select>
 
     <insert id="addPd" parameterType="com.lcfc.spring_demo.entity.Product_material_details" >

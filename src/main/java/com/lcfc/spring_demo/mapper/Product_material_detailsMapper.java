@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @Mapper
+
 public interface Product_material_detailsMapper {
 
     //查询部分
@@ -23,10 +24,8 @@ public interface Product_material_detailsMapper {
     
     //增加数据
     public void addPd(Product_material_details product_material_details);
-
     //修改
     public void updatePd(Product_material_details product_material_details);
-
     //删除
     public void delPd(@Param("name") String name);
 
