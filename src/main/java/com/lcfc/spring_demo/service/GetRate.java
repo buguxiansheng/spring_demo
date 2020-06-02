@@ -201,6 +201,8 @@ public class GetRate {
         List<Double> mac_cost=new ArrayList<>();
         List<Double> mat_cost=new ArrayList<>();
         List<Double> sal_cost=new ArrayList<>();
+
+        
         Iterator<Product_general_cost> it=list.iterator();  
 
 

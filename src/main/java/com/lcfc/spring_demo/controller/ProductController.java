@@ -134,18 +134,10 @@ public class ProductController {
     @RequestMapping("/spec_find")
     @ResponseBody
     private PageInfo<Product_material_details> findAll(@RequestBody Map<String,Integer> pagination){
-        
         PageHelper.startPage(pagination.get("currentPage"), pagination.get("pageSize"));
-
-
         List<Product_material_details> list=product_material_detailsMapper.findAll();
-
-
         PageInfo<Product_material_details> pageInfo =new PageInfo<>(list);
-
         pageInfo.setPageSize(pagination.get("pageSize"));
-
-        
         return pageInfo;
     }
 

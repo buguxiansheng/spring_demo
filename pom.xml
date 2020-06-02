@@ -16,6 +16,8 @@
     <java.version>1.8</java.version>
   </properties>
   <dependencies>
+
+  <!--  -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter</artifactId>
@@ -26,6 +28,8 @@
         </exclusion>
       </exclusions>
     </dependency>
+
+    <!-- junit -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
@@ -37,22 +41,28 @@
         </exclusion>
       </exclusions>
     </dependency>
+
+    <!-- jdbc -->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <scope>runtime</scope>
     </dependency>
+
+    <!-- mybatis  -->
     <dependency>
       <groupId>org.mybatis.spring.boot</groupId>
       <artifactId>mybatis-spring-boot-starter</artifactId>
       <version>1.3.2</version>
       <scope>compile</scope>
     </dependency>
+
+
     <!-- 分页插件 -->
     <dependency>
-      <groupId>com.github.pagehelper</groupId>
-      <artifactId>pagehelper</artifactId>
-      <version>5.1.2</version> 
+        <groupId>com.github.pagehelper</groupId>
+        <artifactId>pagehelper-spring-boot-starter</artifactId>
+        <version>1.2.10</version>
     </dependency>
 
     <!-- <dependency>
@@ -67,26 +77,34 @@
       <scope>compile</scope>
     </dependency>
 
-
+    <!-- 连接池 -->
     <dependency>
       <groupId>com.alibaba</groupId>
       <artifactId>druid-spring-boot-starter</artifactId>
       <version>1.1.9</version>
     </dependency>
+
+    <!-- 日志 -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-log4j2</artifactId>
     </dependency>
+
+
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-thymeleaf</artifactId>
       <scope>compile</scope>
     </dependency>
+
+
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <scope>annotationProcessor</scope>
     </dependency>
+
+
   </dependencies>
   <build>
     <plugins>

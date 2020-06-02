@@ -42,7 +42,7 @@ class DemoApplicationTests {
 	@Test
 	void contextLoads() {
 		// fdName();
-		get(300);
+		// get(300);
 		// findByName(fdName());
 		// findCost(fdName());
 	}
@@ -67,8 +67,8 @@ class DemoApplicationTests {
         return getRate.get(product_general_costMapper.generalCostRate(product_names)); 
 	}
 
-	public Vendor_select get(int amount){
-		System.out.println(h.getCostInfo(amount));
-		return h.getCostInfo(amount);
-	}
-}
+// 	public Vendor_select get(int amount){
+// 		System.out.println(h.getCostInfo(amount));
+// 		return h.getCostInfo(amount);
+// 	}
+ }
