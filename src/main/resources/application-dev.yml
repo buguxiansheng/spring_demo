@@ -4,8 +4,8 @@ server:
 spring:
     datasource: 
         username: root
-        password: root
-        url: jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+        password: 123456
+        url: jdbc:mysql://119.45.140.92:3306/demo?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
         driver-class-name: com.mysql.cj.jdbc.Driver
 
         
@@ -19,6 +19,14 @@ spring:
 mybatis:
     mapper-locations: classpath:mapping/*Mapper.xml
     type-aliases-package: com.lcfc.spring_demo
+logging:
+    level:
+        com:
+            lcfc:
+                spring_demo:
+                    mapper: debug   
+    
+
     
 
 

@@ -4,11 +4,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+import com.lcfc.spring_demo.entity.Product_contrast;
 import com.lcfc.spring_demo.entity.Product_general_cost;
 import com.lcfc.spring_demo.entity.Product_make_details;
 import com.lcfc.spring_demo.entity.Product_material_details;
 import com.lcfc.spring_demo.entity.Vendor_select;
+import com.lcfc.spring_demo.mapper.Product_contrastMapper;
 import com.lcfc.spring_demo.mapper.Product_general_costMapper;
 import com.lcfc.spring_demo.mapper.Product_make_detailsMapper;
 import com.lcfc.spring_demo.mapper.Product_material_detailsMapper;
@@ -36,11 +37,15 @@ class DemoApplicationTests {
 	private Product_material_detailsMapper product_material_detailsMapper;
 	@Autowired
 	private VendorSelect h;
+	@Autowired
+	private Product_contrastMapper pc;
+
 
 	
 
 	@Test
 	void contextLoads() {
+		System.out.println(pc.get("小新Air_15_2020"));
 		// fdName();
 		// get(300);
 		// findByName(fdName());
@@ -66,6 +71,8 @@ class DemoApplicationTests {
 		System.out.println("未经处理的："+product_general_costMapper.generalCostRate(product_names));
         return getRate.get(product_general_costMapper.generalCostRate(product_names)); 
 	}
+
+	
 
 // 	public Vendor_select get(int amount){
 // 		System.out.println(h.getCostInfo(amount));

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lcfc.spring_demo.mapper.Product_contrastMapper">
+    <select id="get" resultType="com.lcfc.spring_demo.entity.Product_contrast" >
+        select * from product_contrast where product_name=#{name}
+    </select>
+    <select id="getAll" resultType="com.lcfc.spring_demo.entity.Product_contrast" >
+        select * from product_contrast limit 20;
+    </select>
+    
+</mapper>

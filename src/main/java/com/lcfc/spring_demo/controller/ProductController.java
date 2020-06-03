@@ -7,10 +7,12 @@ import java.util.Map;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.lcfc.spring_demo.entity.Product_contrast;
 import com.lcfc.spring_demo.entity.Product_general_cost;
 import com.lcfc.spring_demo.entity.Product_make_details;
 import com.lcfc.spring_demo.entity.Product_material_details;
 import com.lcfc.spring_demo.entity.Vendor_select;
+import com.lcfc.spring_demo.mapper.Product_contrastMapper;
 import com.lcfc.spring_demo.mapper.Product_general_costMapper;
 import com.lcfc.spring_demo.mapper.Product_make_detailsMapper;
 import com.lcfc.spring_demo.mapper.Product_material_detailsMapper;
@@ -53,6 +55,9 @@ public class ProductController {
 
     @Autowired
     private VendorSelect vendorSelect;
+
+    @Autowired
+    private Product_contrastMapper pcM;
 
 
 
@@ -131,6 +136,7 @@ public class ProductController {
         
     }
 
+    // 分页查询
     @RequestMapping("/spec_find")
     @ResponseBody
     private PageInfo<Product_material_details> findAll(@RequestBody Map<String,Integer> pagination){
@@ -141,10 +147,10 @@ public class ProductController {
         return pageInfo;
     }
 
-    //分页查询
-    @RequestMapping("/spec_find_part")
+    //分页查询需要
+    @RequestMapping("/spec_find_all")
     @ResponseBody
-    private List<Product_material_details> findPart(@RequestBody Map<String,String> map){
+    private List<Product_material_details> find(){
         //map村的有总条数 页的大小 
         return product_material_detailsMapper.findAll();
     }
@@ -165,6 +171,16 @@ public class ProductController {
         System.out.println(vendorSelect.getCostInfo(amount));
         return vendorSelect.getCostInfo(amount);
     }
+
+    //性价比
+    @RequestMapping("/get_all")
+    @ResponseBody
+    private List<Product_contrast> name() {
+        System.out.println(pcM.getAll());
+        return pcM.getAll();
+        
+    }
+
 
     
 
